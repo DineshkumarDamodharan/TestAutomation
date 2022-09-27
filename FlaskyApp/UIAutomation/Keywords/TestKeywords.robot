@@ -14,6 +14,7 @@ Open Application
     ...    Arguments: ${Url} - Url of the test application, ${browser} - Tests will performed in the given browser
 
     Open Browser    ${Url}    ${browser}
+    Maximize Browser Window
     Wait Until Page Contains    Demo app    timeout=30s
     Page Should Contain    index page
     @{homePageLoc}    Create List    ${link_Register}      ${link_Login}
@@ -31,8 +32,9 @@ Navigate to Registration page
     [Teardown]    Generic Keyword teardown    Navigate to Registration page
 
 Register User
-    [Arguments]    ${userName}    ${password}    ${firstName}    ${lastName}    ${phoneNumber}
-    [Documentation]    This keyword inputs given parameters in the registration screen.
+    [Arguments]    ${userName}    ${password}    ${firstName}    ${lastName}    ${phoneNumber}    ${expectError}=False    ${errorMessage}=None
+    [Documentation]    This keyword inputs given parameters in the registration screen. If ${expectError}=True then keyword expects ${errorMessage}
+    ...    And verifies whether page contains ${errorMessage}
 
     Input Text    ${input_register_username}    ${userName}
     Input Password    ${input_register_password}     ${password}
@@ -40,7 +42,7 @@ Register User
     Input Text    ${input_register_lastName}    ${lastName}
     Input Text    ${input_register_phoneNumber}    ${phoneNumber}
     Click Element    ${button_register}
-    Wait Until Page Contains    Log In   timeout=30s
+    Run keyword if    ${expectError}    Wait Until Page Contains    ${errorMessage}    timeout=30s    ELSE    Wait Until Page Contains    Log In   timeout=30s    
     [Teardown]    Generic Keyword teardown    User Registration    
 
 Navigate to Login page
@@ -54,13 +56,14 @@ Navigate to Login page
     [Teardown]    Generic Keyword teardown    Navigate to Login page
 
 Login to the Application
-    [Arguments]    ${username}    ${password}
-    [Documentation]    This keyword logins to the application with the given credentials
+    [Arguments]    ${username}    ${password}    ${expectError}=False    ${errorMessage}=None
+    [Documentation]    This keyword logins to the application with the given credentials. If ${expectError}=True then keyword expects ${errorMessage}
+    ...    And verifies whether page contains ${errorMessage}
 
     Input Text    ${input_login_username}    ${username}
     Input Password    ${input_login_password}    ${password}
     Click Element    ${button_login}
-    Wait Until Page Contains    User Information    timeout=30s
+    Run keyword if    ${expectError}    Page should Contain    ${errorMessage}    ELSE    Wait Until Page Contains    User Information    timeout=30s
     [Teardown]    Generic Keyword teardown    Login to the application
 
 Verify User Information
@@ -97,9 +100,14 @@ Verify Mandatory fields in the page
     [Teardown]    Generic Keyword teardown    Verify mandatory fields in the page
 
 Navigate to Index Page
-    [Arguments]    ${loggedIn}=False
+    [Arguments]    ${loggedIn}=False    ${userName}=None
     
     Click Element    //a[text()='Demo app']
     Wait Until Page Contains    index page    timeout=30s
-    
+    Page should contain    Demo app
+    Run keyword If    ${loggedIn}    Page should contain    ${userName}    ELSE    Page should contain element    ${link_register}
+    Run keyword If    ${loggedIn}    Page should contain element    ${link_logout}    ELSE    Page should contain element    ${link_login}
+    [Teardown]    Generic Keyword teardown    Navigate to Index Page
+
+
     

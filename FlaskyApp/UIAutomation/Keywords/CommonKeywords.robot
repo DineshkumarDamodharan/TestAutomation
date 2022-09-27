@@ -39,7 +39,8 @@ Test Case Catch
     [Arguments]    ${keyword_name}
     Log to console    Looks like there is something wrong...........
     Log to console    Keyword ${keyword_name} failed........
-    Capture Page Screenshot    ${TEST NAME}_${keyword_name}
+    Capture Page Screenshot    ${TEST NAME}_${keyword_name}.png
+    Close All Browsers
 
 Verify required in Forms
     [Arguments]    ${numberFields}    ${button}    ${message}    @{inputFields}
@@ -64,5 +65,6 @@ Verify required in Forms
         ${actual_message}    Get Element Attribute  ${inputFields}[${x}]    validationMessage
         Log    Test mandatory field for ${inputFields}[${x}]
         Should be equal       ${message}    ${actual_message}
+        Reload Page
     END
 
