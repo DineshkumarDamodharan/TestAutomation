@@ -1,16 +1,25 @@
 # TestAutomation
-- This repository is used have the code of my assignments of Flasky Demo App.
+- This repository is having the code of automation testing for Flasky Demo App
 - requirements.txt is updated with all the needed dependencies for test automation and also with the updated libraries needed to build the application
-- Everytime need the fresh build to execute the test cases otherwise 'Username' already exists error will happen as username is not handled dynamicaly in the script
+- Everytime the test case execution needs the fresh build to avoid 'Username' already exists error as username is not handled dynamicaly in the script
 - After deploying the app from https://github.com/sh-rdtaci/Flasky, Assign the correct URL in the tests.
 
+## Tools and Versions used for development of this Automation suite:
+- Python - 3.10
+- IDE - Visual studio Code
+- IDE Extensions - Python by microsoft, Robot Framework Langauage Server by Robocorp
+- Broswe - Chrome
+- Brower Version - 105.0.5195.127 
+- OS - Windows 10
+
 ## UI Automation
-- Robot Framework is used for UI automation.
+- Robot Framework with selenium library is used for UI automation.
+- Dont Forget to add the drivers for browser in python path
 
 ### Test Data
 All the data such as browser, URL, Screenshot Directory are defined in /FlaskyApp/UIAutomation/Resources/TestData.robot
 ### Page Objects
-Locators of each element used in the test cases mentioned in its respective *page.robot file under /FlaskyApp/UIAutomation/Resources/PageObjects/
+Locators of each elements used in the test cases are mentioned in its respective *page.robot file under /FlaskyApp/UIAutomation/Resources/PageObjects/
 ### Keywords
 All the keywords used in this test automation are defined in this folder /FlaskyApp/UIAutomation/Keywords/
 #### CommonKeywords.robot
@@ -24,9 +33,9 @@ All the keywords specific to this application are defined here
 - SmokeTestCase - By executing this tag, test will navigate to all the pages accessible without login to verify whether the pages are loaded properly
 - E2ETestCase - By executing this tag, we can test the positive end to end flow
 - NegativeFlow - By executing this tag, we can test all the error messages displayed in the app
-- knownIssue - The test case which has this tag will defenitely fail as we have known issue here. Details of the issue is mentioned in the test case description. This tag is introduced so that we can exclude this test case during execution to avoid build failure
+- knownIssue - The test case which has this tag will defenitely fail as we have known issue here. Details of the issue is mentioned in the test case documentation. This tag is introduced so that we can exclude this test case during execution to avoid build failure
 #### Screenshots
-Screenshots will be saved in the directory /Screenshots
+Screenshots will be saved in the directory /Screenshots/
 
 ### Execution:
 In Terminal/Cmd
@@ -56,3 +65,4 @@ In Terminal/Cmd
 ```
 pytest #from the TestAutomation folder
 ```
+<div align="center">Happy Testing !!! </div>
