@@ -38,9 +38,9 @@ All the keywords specific to this application are defined here
 Screenshots will be saved in the directory /Screenshots/
 
 ### Execution:
-In Terminal/Cmd
+In Terminal/Cmd from the TestAutomation folder
 ```
-robot FlaskyApp\UIAutomation\TestCases\FlaskyAppTestCases.robot #from the TestAutomation folder
+robot FlaskyApp\UIAutomation\TestCases\FlaskyAppTestCases.robot
 ```
 To Include tag
 ```
