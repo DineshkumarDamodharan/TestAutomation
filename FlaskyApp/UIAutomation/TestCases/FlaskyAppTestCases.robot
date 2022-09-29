@@ -48,7 +48,7 @@ Resource    ../Resources/TestData.robot
     Close All Browsers
     [Teardown]    Generic TestCase teardown
 
-4 Verify the mandaotry fields in Registration page 
+4 Verify the mandatory fields in Registration page 
     [Documentation]    GIVEN I want to verify the mandatory fields in the registration page
     ...    WHEN I leave one field empty AND filled other fields AND I click Register button
     ...    THEN Error message displayed over the empty field
@@ -61,7 +61,7 @@ Resource    ../Resources/TestData.robot
     Close All Browsers
     [Teardown]    Generic TestCase teardown
 
-5 Verify the mandaotry fields in Login page 
+5 Verify the mandatory fields in Login page 
     [Documentation]    GIVEN I want to verify the mandatory fields in the login page
     ...    WHEN I leave one field empty AND filled other field AND I click Login button
     ...    THEN Error message displayed over the empty field
@@ -76,7 +76,7 @@ Resource    ../Resources/TestData.robot
 
 6 Registering with the same username to verify the Error
     [Documentation]    GIVEN I want to test that appropriate error message gets displayed on registering with already registered username
-    ...    WHEN I eneter already registered user name during registration AND fill other fields in the registration page AND click Register button
+    ...    WHEN I enter already registered user name during registration AND fill other fields in the registration page AND click Register button
     ...    THEN I should see the error message stating the username is already registered
     ...
     ...    Dependency/Pre-req Test Case: 2 Register User    
@@ -116,7 +116,7 @@ Resource    ../Resources/TestData.robot
     Close All Browsers
     [Teardown]    Generic TestCase teardown
 
-9 Verfiy that the username field is case sensitive
+9 Verify that the username field is case sensitive
     [Documentation]    GIVEN I want to test that username field is case sensitive
     ...     WHEN I enter the username in login page with first character in lower case (Were the User registered with first letter as upper case in the username )
     ...    AND I enter correct password AND I click login button
@@ -132,13 +132,13 @@ Resource    ../Resources/TestData.robot
     Close All Browsers
     [Teardown]    Generic TestCase teardown
 
-10 Verify that Phonenumber fields do not accpet Alphabets
+10 Verify that Phonenumber fields do not accept Alphabets
     [Documentation]    GIVEN I want to verify that phone number field in the registration page accepts only numbers
     ...    WHEN I enter alphabets in the phone number field in the registration page AND fills other fields AND click Register button
     ...    THEN I should see the error message stating phone number field accepts only number
     ...
     ...    Known issue: Current version accepts alphabets in the phone number field which causes this test case failure
-    ...    Assumption: As there is not requirementm assumed the error message as 'Alphabets not allowed in Phone Number field'
+    ...    Assumption: As there is no requirement,  assumed the error message as 'Alphabets not allowed in Phone Number field'
     [Tags]    NegativeFlow    knownIssue
 
     Open Application    ${Url}    ${browser}

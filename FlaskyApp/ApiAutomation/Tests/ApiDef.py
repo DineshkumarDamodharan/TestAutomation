@@ -49,7 +49,7 @@ class ApiDef:
 
     def get_user_details(self,jsonfileLocation,isFileLocation):
         #Need to pass payload File location or payload object used for registration/modification. isFileLocation should be True if we pass file location or False if we pass object
-        #Condition to tell the method the recevied jsonfileLocation is a filelocation or python object to make use of the same method in different test case
+        #Condition to tell the method the received jsonfileLocation is a filelocation or python object to make use of the same method in different test case
         if isFileLocation:
             getUserDetailsJson = self.read_json(jsonfileLocation)
         else:

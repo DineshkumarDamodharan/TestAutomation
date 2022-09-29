@@ -22,7 +22,7 @@ Open Application
     [Teardown]    Generic Keyword teardown    Open Application
 
 Navigate to Registration page
-    [Documentation]    This keywords navigates to Registration page by clicking Register link in navigation bar
+    [Documentation]    This keyword navigates to Registration page by clicking Register link in navigation bar
 
     Click Element    ${link_Register}
     Wait Until Page Contains    Username    timeout=30s
@@ -68,7 +68,7 @@ Login to the Application
 
 Verify User Information
     [Arguments]    ${username}    ${firstName}    ${lastName}    ${phoneNumber}
-    [Documentation]    This keyword verfies the data displayed in the user information page against the arguments passed
+    [Documentation]    This keyword verifies the data displayed in the user information page against the arguments passed
     
     ${nav_username}    Get Text    ${text_userinfo_nav_username}
     Should be equal    ${username}    ${nav_username}
@@ -83,7 +83,7 @@ Verify User Information
     [Teardown]    Generic Keyword teardown    Verify User Information
 
 Logout Application
-    [Documentation]    This keyword logsout from the application
+    [Documentation]    This keyword logs out from the application
 
     Click Element    ${link_logout}
     Wait until page contains    index page    timeout=30s
@@ -91,7 +91,7 @@ Logout Application
 
 Verify Mandatory fields in the page
     [Arguments]    ${page}
-    [Documentation]    Argument ${page} = Register or Login. This keyword verifies the mandatory fields in the page accordung to the ${page}
+    [Documentation]    Argument ${page} = Register or Login. This keyword verifies the mandatory fields in the page according to the ${page}
 
     @{registrationPageFields}    CreateList    ${input_register_username}    ${input_register_password}    ${input_register_firstName}    ${input_register_lastName}    ${input_register_phoneNumber}
     @{loginPageFields}    CreateList    ${input_login_username}    ${input_login_password}

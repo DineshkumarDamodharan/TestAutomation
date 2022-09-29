@@ -49,7 +49,7 @@ class Test_ApiFlaskyApp(ApiDef):
     @pytest.mark.dependency(depends=['Test_ApiFlaskyApp::test_register_new_user'])
     def test_getUsers(self):
         """
-        GIVEN Users are registed in the application
+        GIVEN Users are registered in the application
         WHEN I GET the users in the api/users
         THEN Registered users are returned in the response
         """
