@@ -40,9 +40,16 @@ Screenshots will be saved in the directory /Screenshots/
 ### Execution:
 In Terminal/Cmd
 ```
-robot #from the TestAutomation folder
+robot FlaskyApp\UIAutomation\TestCases\FlaskyAppTestCases.robot #from the TestAutomation folder
 ```
-
+To Include tag
+```
+robot -i <tagName> FlaskyApp\UIAutomation\TestCases\FlaskyAppTestCases.robot
+```
+To Exclude tag
+```
+robot -e <tagName> FlaskyApp\UIAutomation\TestCases\FlaskyAppTestCases.robot
+```
 ## API Automation
 - Pytest with requests library is used for API automation
 - API documentation can be found in https://github.com/sh-rdtaci/Flasky
