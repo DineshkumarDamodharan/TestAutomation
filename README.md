@@ -8,8 +8,8 @@
 - Python - 3.10
 - IDE - Visual studio Code
 - IDE Extensions - Python by microsoft, Robot Framework Langauage Server by Robocorp
-- Broswe - Chrome
-- Brower Version - 105.0.5195.127 
+- Browser - Chrome
+- Browser Version - 105.0.5195.127 
 - OS - Windows 10
 
 ## UI Automation
